@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Вавада предлагает более 4000 игр казино - слоты, настольные игры и живое казино. Новые клиенты получают 100 бездепозитных вращений и $1000!"
+    />
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <title>Вавада Казино Игры | Слоты и бесплатные спины</title>
+  </head>
+  <style>
+    :root {
+      --accent-color: #f66766;
+    }
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+        'Helvetica Neue', sans-serif;
+      font-size: 16px;
+      color: #fff;
+      background: #1c1e2f url('images/background.webp');
+      background-repeat: repeat-y;
+      background-size: contain;
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    h1 {
+      margin: 0;
+    }
+    p {
+      margin: 0 0 20px 0;
+    }
+    ol,
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .title {
+      padding: 10px 0;
+      border-bottom: 1px solid hsla(0, 0%, 100%, 0.25);
+    }
+    .btn {
+      font-size: 18px;
+      box-shadow: 0 3px 0 0 #871628, 0 4px 4px 0 #000;
+      background-color: #fe284a;
+      height: 30px;
+      padding: 0 30px;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 22px;
+      font-weight: 800;
+      border-radius: 50px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn:hover {
+      box-shadow: 0 3px 0 0 #871628, 0 4px 4px 0 #000, inset 0 15px 15px -3px hsla(0, 0%, 100%, 0.4);
+    }
+    .btn:active {
+      transform: translateY(3px);
+      box-shadow: inset 0 2px 0 0 #871628, inset 0 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    .header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      padding: 10px 0;
+      background-color: rgba(37, 37, 54, 0.95);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .btn-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .log-in {
+      font-size: 14px;
+      margin-right: 20px;
+      color: #fff;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+    .btn-header {
+      font-size: 14px;
+    }
+    .baner {
+      height: 380px;
+      background-image: url('images/baner-full.webp');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    .overlay {
+      text-align: center;
+    }
+    .baner__title {
+      background: linear-gradient(180deg, #ffee5b, #ffee5b 40%, #ffd303 45%, #f4b001 50%, #ffd303 55%, #ffee5b 60%, #ffee5b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 42px;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .navigation {
+      background-color: #1d1d2f;
+      border-bottom: 1px dotted #313047;
+    }
+    .menu__list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .menu__item {
+      position: relative;
+      width: 25%;
+      margin-bottom: 0;
+    }
+    .menu__item.active {
+      background-color: hsla(0, 0%, 100%, 0.05);
+      border-radius: 10px;
+    }
+    .menu__item::after {
+      content: '';
+      position: absolute;
+      top: 10.5px;
+      right: 0;
+      height: 32px;
+      width: 2px;
+      background-color: #313047;
+    }
+    .menu__item:last-child::after {
+      background-color: transparent;
+    }
+    .menu__link:hover {
+      background-color: hsla(0, 0%, 100%, 0.05);
+    }
+    .menu__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 800;
+      align-items: center;
+      height: 56px;
+      border-radius: 10px;
+    }
+    .menu__link-img {
+      margin-right: 10px;
+    }
+    .about {
+      padding: 40px 0;
+    }
+    .about__inner {
+      border: 1px solid hsla(0, 0%, 100%, 0.15);
+      border-radius: 10px;
+      box-shadow: 0 8px 10px #000;
+      background-color: #262c46;
+      padding: 30px;
+    }
+    .about__title {
+      text-decoration: underline;
+      text-align: center;
+    }
+    .about__title-link {
+      color: #fff;
+    }
+    .btn-bonus {
+      padding: 25px;
+      width: 240px;
+      margin: 10px auto 40px;
+    }
+    .plus-minus__box {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .plus__box {
+      width: 50%;
+    }
+    .plus__list,
+    .minus__list {
+      list-style: none;
+      padding: 0;
+    }
+    .plus__list-item {
+      position: relative;
+      padding-left: 20px;
+    }
+    .plus__list-item::before,
+    .minus__list-item::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      font-size: 20px;
+    }
+    .plus__list-item::before {
+      content: '+';
+      color: #2cd667;
+    }
+    .minus__list-item::before {
+      content: '-';
+      color: #f66766;
+    }
+    .minus__box {
+      width: 50%;
+    }
+    .minus__list-item {
+      position: relative;
+      padding-left: 20px;
+    }
+    .accent-color {
+      color: var(--accent-color);
+    }
+    .questions__item {
+      position: relative;
+      border-radius: 5px;
+      box-shadow: 0 8px 20px rgba(9, 28, 83, 0.08);
+      max-width: 800px;
+      background-color: #191921;
+      border-radius: 20px;
+    }
+    .questions__item + .questions__item {
+      margin-top: 15px;
+    }
+    .questions__input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+    .questions__label {
+      display: block;
+      padding: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+    .questions__label::after,
+    .questions__label::before {
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      top: 43%;
+      transform: translateY(-50%);
+      height: 10px;
+      width: 2px;
+      transition: all 0.5s;
+    }
+    .questions__label::after {
+      right: 23px;
+      transform: rotate(45deg);
+    }
+    .questions__label::before {
+      right: 30px;
+      transform: rotate(-45deg);
+    }
+    .questions__content {
+      padding: 0 20px 20px 20px;
+      background-color: #191921;
+      display: none;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+    .questions__input:checked ~ .questions__label::after {
+      transform: rotate(135deg);
+    }
+    .questions__input:checked ~ .questions__label::before {
+      transform: rotate(-135deg);
+    }
+    .questions__input:checked ~ .questions__content {
+      display: block;
+    }
+    .content__photo {
+      grid-area: photo;
+      margin-right: 10px;
+      margin-top: 4px;
+    }
+    .content__descr {
+      grid-area: descr;
+      margin-bottom: 10px;
+    }
+    .content__name {
+      grid-area: name;
+      font-weight: 900;
+    }
+    .content__author-inner {
+      margin-bottom: 40px;
+      display: grid;
+      max-width: 600px;
+      grid-template-areas:
+        'photo descr'
+        '. name';
+    }
+    .footer {
+      background-color: #191921;
+      padding: 40px 0;
+    }
+    .footer__menu-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .footer__menu-link {
+      color: #fff;
+    }
+    .copyright {
+      text-align: center;
+    }
+    @media (max-width: 955px) {
+      body {
+        background-image: none;
+      }
+      .about__img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .menu__item {
+        width: 48%;
+        margin-right: 5px;
+      }
+      .menu__item:nth-child(2)::after {
+        display: none;
+      }
+      .menu__link {
+        justify-content: start;
+        padding: 0 10px;
+      }
+    }
+    @media (max-width: 650px) {
+      .header__inner {
+        justify-content: center;
+      }
+      .btn-box {
+        width: 100%;
+        border-top: 1px solid #363648;
+        padding-top: 10px;
+      }
+      .logo {
+        margin-bottom: 10px;
+      }
+      .menu__link {
+        font-size: 12px;
+        padding-left: 0;
+      }
+      .menu__link-img {
+        margin-right: 5px;
+      }
+    }
+    @media (max-width: 512px) {
+      .container {
+        padding: 0 10px;
+      }
+      .header {
+        background-color: #161626;
+      }
+      .btn-box {
+        justify-content: space-between;
+      }
+      .log-in {
+        font-size: 13px;
+      }
+      .btn-header {
+        font-size: 12px;
+        padding: 0 10px;
+      }
+      .baner {
+        margin-top: 100px;
+        height: 190px;
+      }
+      .baner__title {
+        font-size: 30px;
+        width: 100%;
+        text-align: center;
+        bottom: 0;
+      }
+      .overlay {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 78px;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      .about {
+        padding-bottom: 20px;
+      }
+      .about__inner {
+        padding: 20px 10px;
+      }
+      .btn-bonus {
+        font-size: 16px;
+      }
+      .plus__box,
+      .minus__box {
+        width: 100%;
+      }
+      .questions__label {
+        padding: 15px 28px 15px 15px;
+      }
+      .questions__label::after {
+        right: 15px;
+        width: 1.5px;
+      }
+      .questions__label::before {
+        right: 22px;
+        width: 1.5px;
+      }
+      .footer__menu-list {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <a href="https://vavada.hr">
+            <img class="logo" src="images/logo.svg" alt="logo" width="200" height="31" loading="eager" />
+          </a>
+          <div class="btn-box">
+            <a class="log-in" href="go.html">Подключится</a>
+            <a class="btn btn-header" href="go.html">Зарегистрироваться</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="baner">
+        <div class="overlay">
+          <h1 class="baner__title">Вавада Бонусы</h1>
+        </div>
+      </section>
+      <div class="navigation">
+        <div class="container">
+          <nav class="menu">
+            <ul class="menu__list">
+              <li class="menu__item active">
+                <a class="menu__link" href="https://vavada.hr/casino-games" style="color: #17eada">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-777.svg"
+                    width="62"
+                    height="35"
+                    loading="lazy"
+                    alt="vavada games"
+                  />
+                  Казино Игры
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="https://vavada.hr/pay" style="color: #de593e">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-payments.svg"
+                    width="54"
+                    height="44"
+                    loading="lazy"
+                    alt="vavada payments"
+                  />
+                  Способы Oплаты
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="https://vavada.hr/mobile-casino" style="color: #6ef770">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-mobile.webp"
+                    width="24"
+                    height="40"
+                    loading="lazy"
+                    alt="vavada mobile"
+                  />
+                  Мобильное Казино
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="https://vavada.hr/bonuses" style="color: #e8ce3a">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-bonuses.svg"
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                    alt="vavada bonuses"
+                  />
+                  Бонусы
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <section class="about">
+        <div class="container">
+          <div class="about__inner">
+            <h2 class="about__title">
+              <a class="about__title-link" href="go.html">100% БОНУС ДО €920 И 100 БЕСПЛАТНЫХ ВРАЩЕНИЙ</a>
+            </h2>
+            <a class="btn btn-bonus" href="go.html">Получить бонус</a>
+            <p>
+              Все больше и больше игроков онлайн-казино со всей Европы предпочитают играть в
+              <a class="accent-color" href="go.html">казино Вавада</a>. Почему? В основном из-за "бесконечного" ассортимента
+              развлечений - более 4 000 игр казино Вавада - это безумно щедрый ассортимент игр. Слоты, живое казино, настольные
+              игры... Вавада казино предлагает самые последние игры казино от ведущих компаний-разработчиков программного
+              обеспечения для iGaming индустрии - Pragmatic Play, Hacksaw Gaming, Evolution Gaming, Play'n Go, NetEnt, Microgaming
+              и др.
+            </p>
+            <p>
+              Стоит отметить, что игры в казино - не единственная сильная сторона Вавады. Бонус Vavada для новых игроков также
+              играет большую роль. Во-первых, новые клиенты получают 100 бесплатных вращений без депозита на слоте Great Pigsby
+              Megaways от <a class="accent-color" href="go.html">Relax Gaming</a>. Во-вторых, приветственный бонус Vavada casino
+              дополняется 100% бонусом на первый депозит до $1 000. И это только для новых клиентов -
+              <a class="accent-color" href="go.html">бонусы Вавада</a> регулярно поощряют и активных пользователей.
+            </p>
+            <h2 class="title">ПЛЮСЫ И МИНУСЫ АССОРТИМЕНТА ИГР ВАВАДА</h2>
+            <div class="plus-minus__box">
+              <div class="plus__box">
+                <h3>ПЛЮСЫ</h3>
+                <ul class="plus__list">
+                  <li class="plus__list-item">Огромный выбор из 4000 игр казино</li>
+                  <li class="plus__list-item">
+                    Игры от более чем 50 различных разработчиков программного обеспечения для iGaming
+                  </li>
+                  <li class="plus__list-item">Самые новые игры казино в индустрии</li>
+                  <li class="plus__list-item">Отличные бонусы</li>
+                  <li class="plus__list-item">Бесплатная демо-игра</li>
+                  <li class="plus__list-item">Отсутствие налогов на крупные выигрыши</li>
+                </ul>
+              </div>
+              <div class="minus__box">
+                <h3>МИНУСЫ</h3>
+                <ul class="minus__list">
+                  <li class="minus__list-item">Не спортивного тотализатор</li>
+                  <li class="minus__list-item">Нет популярных игровых автоматов Novomatic</li>
+                  <li class="minus__list-item">Другие игры live-казино недоступны в нескольких регионах</li>
+                </ul>
+              </div>
+            </div>
+            <h2 class="title">ИГРОВЫЕ АВТОМАТЫ</h2>
+            <p>
+              Игровые автоматы - это развлечение ТОП. Кто после зажигательной ночи в Старом городе не забредал в наполненные
+              сигаретным дымом игровые залы, чтобы пропустить стаканчик и насладиться "магией" игровых автоматов? Самое приятное,
+              что в наш цифровой век игровые автоматы доступны и в Интернете. И в гораздо большем количестве. Например, в
+              онлайн-казино Вавада представлено более 3500 игровых автоматов от более чем 50 различных производителей программного
+              обеспечения для iGaming. Вот лишь некоторые из них:
+            </p>
+            <ul>
+              <li>Pragmatic Play</li>
+              <li>Hacksaw Gaming</li>
+              <li>Microgaming</li>
+              <li>NetEnt</li>
+              <li>Relax Gaming</li>
+              <li>Nolimit City</li>
+              <li>ELK</li>
+              <li>EGT</li>
+              <li>Quickspin</li>
+              <li>Play’n Go</li>
+              <li>Playtech</li>
+              <li>Thunderkick</li>
+              <li>Yggdrasil</li>
+              <li>Push Gaming</li>
+              <li>Tom Horn Gaming</li>
+            </ul>
+            <p>
+              Если вы любите слоты, то в Vavada вы найдете все, что вам нужно. Классические слот-игры, фруктовые игры,
+              игры-книжки, игры с джекпотом, игры с 5 игровыми линиями, игры с 125 игровыми линиями... в общем, все, что угодно.
+              Из ассортимента онлайн-казино Вавада мы любим играть в Big Bamboo, Big Bass Bonanza, Book of Dead, Razor Shark, Dead
+              or Alive, Money Train, Wanted Dead or A Wild, Chaos Crew и многие другие слоты. Лучше всего, если вы найдете новую
+              игру, которая заставит ваше сердце биться быстрее каждый раз, когда вы играете. Чтобы сделать вращение еще более
+              приятным, команда Вавада организовала турниры по слотам и различные бонусы, такие как бесплатные спины и безрисковые
+              вращения.
+            </p>
+            <h2 class="title">НАСТОЛЬНЫЕ ИГРЫ</h2>
+            <p>
+              Если слоты вам не по душе, то в онлайн-казино Вавада вы найдете настольные игры. И не одну, а множество - более 50.
+              В этом зарубежном казино есть все самые популярные настольные и карточные игры, такие как рулетка, блэкджек и
+              видеопокер. Помимо "блэкджека", ассортимент настольных игр включает и другие игры на деньги. Подробнее об этом ниже:
+            </p>
+            <img class="about__img" src="images/casino-teble.webp" width="600" height="300" loading="lazy" alt="bonus" />
+            <h3>РУЛЕТКА</h3>
+            <p>
+              <a class="accent-color" href="go.html">Рулетка</a> - это одна из классических игр в казино всех времен, доступная не
+              только в каждом наземном казино, но и на сайтах онлайн-азартных игр. Игроки любят рулетку, потому что в этой игре
+              можно делать самые разные ставки. Не только на номер, на который упадет шарик в колесе рулетки, но и на цвета,
+              линии, сектора и т.д. На сайте Вавада в настольных игр вы найдете рулетку от первого лица, американскую рулетку,
+              виртуальную рулетку, молниеносную рулетку, VIP европейскую рулетку и другие вариации рулетки.
+            </p>
+            <h3>БЛЭКДЖЕК</h3>
+            <p>
+              Блэкджек, также называемый дубинка или 21, является еще одной неотъемлемой частью казино. Основная цель игры -
+              набрать руку карт со счетом, максимально приближенным к 21. Однако можно выиграть и с меньшим количеством очков -
+              главное, чтобы рука была лучше, чем у дилера. Настольные игры в Ваваде включают блэкджек от первого лица,
+              молниеносный блэкджек, европейский многорукий блэкджек и блэкджек с двойной экспозицией.
+            </p>
+            <h3>ПОКЕР И ВИДЕОПОКЕР</h3>
+            <p>
+              Покер - карточная игра - король казино. Как футбол в спорте. Хотя в покер интереснее всего играть лично или, по
+              крайней мере, онлайн против других игроков, им можно наслаждаться и против программного обеспечения. Проверьте, что
+              находится в животах этих "плюшевых мишек" в казино Вавада: Pai Gow Poker, Jacks or Better Poker, Jackpot Poker и
+              Joker Poker.
+            </p>
+            <h3>БАКАРА</h3>
+            <p>
+              Что делает Баккару такой привлекательной, так это то, что игроки могут сделать три разные ставки - на себя, на
+              выигрыш, на ничью или на выигрыш крупье. Это означает, что ваш проигрыш действительно будет потерянными деньгами. В
+              Баккара выигрывает рука, у которой счет ближе всего к 9.
+            </p>
+            <h3>ЛОТЕРЕИ, ИГРОВЫЕ ШОУ И ДРУГИЕ РАЗВЛЕЧЕНИЯ</h3>
+            <p>
+              По нашему мнению, это самые увлекательные настольные игры. Их даже трудно назвать настольными играми, но компания
+              Вавада отнесла их именно к этой категории. Для холодных зимних или жарких летних ночей попробуйте Dream Catcher,
+              Superb Keno, Burning Keno, Deal or No Deal, Crash X, Aviator, Mines, Plinko, Limbo Rider, Dice Twice, Hot Bingo,
+              Towers, Coins, Fury Stairs и многое другое.
+            </p>
+            <h2 class="title">LIVE-КАЗИНО</h2>
+            <p>
+              Покер, блэкджек, рулетка, лотереи и другие игры казино с реальными дилерами в удобное для вас время. Это не фантазия
+              - вы можете играть в свои любимые азартные игры, не выходя из дома, с подлинным опытом игры в казино. Вернее, из
+              любой точки мира - все, что вам нужно, это смарт-устройство и подключение к Интернету. Игры казино в реальном
+              времени позволяют игрокам взаимодействовать с другими игроками и дилером, а также играть против реальных людей, а не
+              программного обеспечения. Живые игры казино Вавада предоставляются пятью суперпопулярными игорными компаниями:
+            </p>
+            <ol>
+              <li>Evolution Gaming;</li>
+              <li>Pragmatic Live;</li>
+              <li>Betgames TV;</li>
+              <li>Playtech;</li>
+              <li>Vivo Gaming.</li>
+            </ol>
+            <p>Вавада предлагает самые популярные игры живого казино:</p>
+            <h3>ЖИВАЯ РУЛЕТКА</h3>
+            <p>
+              Сможете ли вы угадать, в какое из 37 отверстий на колесе рулетки попадет шарик? Если вы уверены в своей интуиции, то
+              в живом казино Vavada вы можете выбрать одну из версий рулетки - PowerUp Roulette, Roulette, Speed Roulette, Mega
+              Roulette, Auto Roulette, European Roulette, American Roulette, French Roulette и др.
+            </p>
+            <h3>LIVE БЛЭКДЖЕК</h3>
+            <p>
+              Получите лучшую руку, чем у дилера, и заберите свой выигрыш. Звучит элементарно, но это не всегда так просто.
+              Блэкджек - захватывающая игра, особенно с настоящим дилером! Обязательно попробуйте Speed Blackjack, VIP Blackjack,
+              ONE Blackjack, Las Vegas Blackjack и т.д.
+            </p>
+            <h3>LIVE БАКАРА</h3>
+            <p>
+              Баккара - не самая популярная игра в казино, но она доступна в любом онлайн-казино. И не зря - баккара имеет
+              несколько вариаций и типов ставок, которые делают ее особенно интересной. В Вавада казино онлайн представлены такие
+              игры, как Baccarat Galaxy, Speed Baccarat, Fortune 6 Baccarat, Super Baccarat и No Comm Baccarat.
+            </p>
+            <h3>LIVE-РОЗЫГРЫШИ, ИГРЫ СО СТАВКАМИ И ИГРОВЫЕ ШОУ</h3>
+            <p>
+              Самой интересной категорией в live-казино, похоже, являются живые розыгрыши, игры со ставками и игровые шоу. В
+              Ваѵаԁа казино есть десятки игр, которые лучше, чем любые другие, включая игровые шоу, лотереи и игры со ставками. Вы
+              можете начать с классических Mega Wheel и Sweet Bonanza Candyland, но обязательно обратите внимание на Boom City,
+              Dead or Alive: Saloon, Crazy Time, Cash or Crash, Gonzo's Treasure Hunt, Monopoly и другие. Не забудьте о Betgames,
+              где вы найдете беспрецедентные игры со ставками, которые заставят азартные игры разгореться с новой силой.
+            </p>
+            <h2 class="title">КАК НАЧАТЬ ИГРАТЬ В КАЗИНО ВАВАДА?</h2>
+            <p>
+              Вам нравится казино Вавада? Мы не можем ошибиться - это онлайн-казино действительно привлекательно. Тысячи слотов,
+              живые игры казино, игровые турниры и настольные игры - выбор просто захватывает дух. Узнайте, как стать игроком
+              Вавада всего за несколько шагов:
+            </p>
+            <h3>1) НАЖМИТЕ НА "ПОЛУЧИТЬ БОНУС”</h3>
+            <p>
+              Кнопка "Получить бонус" приведет вас прямо на сайт Вавада Казино! Посмотрите на игры и бонусы Вавада Казино своими
+              глазами!
+            </p>
+            <h3>2) РЕГИСТРАЦИЯ</h3>
+            <p>
+              Создать учетную запись Вавада очень просто, это займет всего несколько минут. Чтобы стать клиентом Вавада, вам нужно
+              указать свой адрес электронной почты и ввести пароль. Вы также можете указать свои личные данные позже
+            </p>
+            <h3>3) ПОЛУЧИТЕ БОНУС ЗА ЗНАКОМСТВО</h3>
+            <p>
+              Зайдите в свой профиль игрока и активируйте первый бонус - 100 бесплатных вращений без депозита. Как только вы
+              завершите 100 бесплатных вращений, получите 100% бонус на депозит до $1,000.
+            </p>
+            <h3>4) СДЕЛАЙТЕ ПЕРВЫЙ ДЕПОЗИТ</h3>
+            <p>
+              Вавада предлагает широкий <a class="accent-color" href="go.html">выбор способов оплаты</a>. Вы можете пополнить счет
+              с помощью банковской карты, виртуального кошелька или криптовалюты. Вы можете выбрать сумму, которую хотите внести,
+              но имейте в виду, что Вавада умножит ее в 2 раза! Если вы внесете 500, у вас будет 1000 долларов.
+            </p>
+            <h3>5) ИГРАЙТЕ В ИГРЫ КАЗИНО VAVADA!</h3>
+            <p>
+              Итак, вот и все... Вы зарегистрировались, внесли деньги и получили бонус. Теперь остается только наслаждаться играми
+              в казино Вавада. Выбирайте слоты, настольные игры или живые игры казино и наслаждайтесь весельем!
+            </p>
+            <h2 class="title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ – ЧЗВ</h2>
+            <div class="content__inner">
+              <div class="questions__item">
+                <input class="questions__input" type="checkbox" id="question-1" />
+                <label class="questions__label" for="question-1">Какие самые популярные слоты в казино Вавада?</label>
+                <div class="questions__content">
+                  В данный момент самыми популярными разработчиками игровых автоматов в индустрии азартных игр являются Pragmatic
+                  Play и Hacksaw Gaming, которые также можно найти в ассортименте Вавада. В качестве примеров можно привести Sweet
+                  Bonanza, The Dog House, Big Bass Bonanza, Chaos Crew и Wanted Dead or a Wild.
+                </div>
+              </div>
+              <div class="questions__item">
+                <input class="questions__input" type="checkbox" id="question-2" />
+                <label class="questions__label" for="question-2">Что такое бонус казино Vavada?</label>
+                <div class="questions__content">
+                  Новые клиенты казино Vavada получают возможность сыграть бесплатно, получив 100 бездепозитных бесплатных
+                  вращений на игровом автомате Great Pigsby Megaways. Бонус для новых клиентов Вавада продолжается 100% бонусом на
+                  первый депозит до $1,000.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="content__author">
+        <div class="container">
+          <div class="content__author-inner">
+            <img
+              class="content__photo"
+              src="images/Vilis-Liepnieks.webp"
+              width="60"
+              height="60"
+              loading="lazy"
+              alt="author photo"
+            />
+            <p class="content__descr">
+              Как игрок в казино, я имею более 10 лет "опыта". Примерно столько же времени я проработал в игорной индустрии - как
+              создатель контента или копирайтер, как специалист по поддержке клиентов и как маркетолог.
+            </p>
+            <p class="content__name">Вилис Лиепниекс</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <nav class="footer__menu">
+            <ul class="footer__menu-list">
+              <li class="footer__menu-item"><a class="footer__menu-link" href="https://vavada.hr">Вавада</a></li>
+              <li class="footer__menu-item"><a class="footer__menu-link" href="https://vavada.hr/bonuses">Бонусы</a></li>
+              <li class="footer__menu-item">
+                <a class="footer__menu-link" href="https://vavada.hr/casino-games">Казино Игры</a>
+              </li>
+              <li class="footer__menu-item"><a class="footer__menu-link" href="https://vavada.hr/pay">Способы Oплаты</a></li>
+              <li class="footer__menu-item">
+                <a class="footer__menu-link" href="https://vavada.hr/mobile-casino">Мобильное Казино</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright">2023 Vavada-ee.com</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="В казино Вавада вас ждут отличные бонусы! Начните со 100 бездепозитных бесплатных вращений и 100% бонуса на первый депозит до $1000! Наслаждайтесь!"
+    />
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <title>Вавада Бонусы | Бездепозитный бонус для новых клиентов!</title>
+  </head>
+  <style>
+    :root {
+      --accent-color: #f66766;
+    }
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+        'Helvetica Neue', sans-serif;
+      font-size: 16px;
+      color: #fff;
+      background: #1c1e2f url('images/background.webp');
+      background-repeat: repeat-y;
+      background-size: contain;
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    h1 {
+      margin: 0;
+    }
+    p {
+      margin: 0 0 20px 0;
+    }
+    ol,
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .title {
+      padding: 10px 0;
+      border-bottom: 1px solid hsla(0, 0%, 100%, 0.25);
+    }
+    .btn {
+      font-size: 18px;
+      box-shadow: 0 3px 0 0 #871628, 0 4px 4px 0 #000;
+      background-color: #fe284a;
+      height: 30px;
+      padding: 0 30px;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 22px;
+      font-weight: 800;
+      border-radius: 50px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn:hover {
+      box-shadow: 0 3px 0 0 #871628, 0 4px 4px 0 #000, inset 0 15px 15px -3px hsla(0, 0%, 100%, 0.4);
+    }
+    .btn:active {
+      transform: translateY(3px);
+      box-shadow: inset 0 2px 0 0 #871628, inset 0 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    .header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      padding: 10px 0;
+      background-color: rgba(37, 37, 54, 0.95);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .btn-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .log-in {
+      font-size: 14px;
+      margin-right: 20px;
+      color: #fff;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+    .btn-header {
+      font-size: 14px;
+    }
+    .baner {
+      height: 380px;
+      background-image: url('images/baner-full.webp');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    .baner__title {
+      background: linear-gradient(180deg, #ffee5b, #ffee5b 40%, #ffd303 45%, #f4b001 50%, #ffd303 55%, #ffee5b 60%, #ffee5b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 42px;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .navigation {
+      background-color: #1d1d2f;
+      border-bottom: 1px dotted #313047;
+    }
+    .menu__list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .menu__item {
+      position: relative;
+      width: 25%;
+      margin-bottom: 0;
+    }
+    .menu__item.active {
+      background-color: hsla(0, 0%, 100%, 0.05);
+      border-radius: 10px;
+    }
+    .menu__item::after {
+      content: '';
+      position: absolute;
+      top: 10.5px;
+      right: 0;
+      height: 32px;
+      width: 2px;
+      background-color: #313047;
+    }
+    .menu__item:last-child::after {
+      background-color: transparent;
+    }
+    .menu__link:hover {
+      background-color: hsla(0, 0%, 100%, 0.05);
+    }
+    .menu__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 800;
+      align-items: center;
+      height: 56px;
+      border-radius: 10px;
+    }
+    .menu__link-img {
+      margin-right: 10px;
+    }
+    .about {
+      padding: 40px 0;
+    }
+    .about__inner {
+      border: 1px solid hsla(0, 0%, 100%, 0.15);
+      border-radius: 10px;
+      box-shadow: 0 8px 10px #000;
+      background-color: #262c46;
+      padding: 30px;
+    }
+    .about__title {
+      text-decoration: underline;
+      text-align: center;
+    }
+    .about__title-link {
+      color: #fff;
+    }
+    .btn-bonus {
+      padding: 25px;
+      width: 240px;
+      margin: 10px auto 40px;
+    }
+    .plus-minus__box {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .plus__box {
+      width: 50%;
+    }
+    .plus__list,
+    .minus__list {
+      list-style: none;
+      padding: 0;
+    }
+    .plus__list-item {
+      position: relative;
+      padding-left: 20px;
+    }
+    .plus__list-item::before,
+    .minus__list-item::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      font-size: 20px;
+    }
+    .plus__list-item::before {
+      content: '+';
+      color: #2cd667;
+    }
+    .minus__list-item::before {
+      content: '-';
+      color: #f66766;
+    }
+    .minus__box {
+      width: 50%;
+    }
+    .minus__list-item {
+      position: relative;
+      padding-left: 20px;
+    }
+    .accent-color {
+      color: var(--accent-color);
+    }
+    .questions__item {
+      position: relative;
+      border-radius: 5px;
+      box-shadow: 0 8px 20px rgba(9, 28, 83, 0.08);
+      max-width: 800px;
+      background-color: #191921;
+      border-radius: 20px;
+    }
+    .questions__item + .questions__item {
+      margin-top: 15px;
+    }
+    .questions__input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+    .questions__label {
+      display: block;
+      padding: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+    .questions__label::after,
+    .questions__label::before {
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      top: 43%;
+      transform: translateY(-50%);
+      height: 10px;
+      width: 2px;
+      transition: all 0.5s;
+    }
+    .questions__label::after {
+      right: 23px;
+      transform: rotate(45deg);
+    }
+    .questions__label::before {
+      right: 30px;
+      transform: rotate(-45deg);
+    }
+    .questions__content {
+      padding: 0 20px 20px 20px;
+      background-color: #191921;
+      display: none;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+    .questions__input:checked ~ .questions__label::after {
+      transform: rotate(135deg);
+    }
+    .questions__input:checked ~ .questions__label::before {
+      transform: rotate(-135deg);
+    }
+    .questions__input:checked ~ .questions__content {
+      display: block;
+    }
+    .content__photo {
+      grid-area: photo;
+      margin-right: 10px;
+      margin-top: 4px;
+    }
+    .content__descr {
+      grid-area: descr;
+      margin-bottom: 10px;
+    }
+    .content__name {
+      grid-area: name;
+      font-weight: 900;
+    }
+    .content__author-inner {
+      margin-bottom: 40px;
+      display: grid;
+      max-width: 600px;
+      grid-template-areas:
+        'photo descr'
+        '. name';
+    }
+    .footer {
+      background-color: #191921;
+      padding: 40px 0;
+    }
+    .footer__menu-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .footer__menu-link {
+      color: #fff;
+    }
+    .copyright {
+      text-align: center;
+    }
+    @media (max-width: 955px) {
+      body {
+        background-image: none;
+      }
+      .about__img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .menu__item {
+        width: 48%;
+        margin-right: 5px;
+      }
+      .menu__item:nth-child(2)::after {
+        display: none;
+      }
+      .menu__link {
+        justify-content: start;
+        padding: 0 10px;
+      }
+    }
+    @media (max-width: 650px) {
+      .header__inner {
+        justify-content: center;
+      }
+      .btn-box {
+        width: 100%;
+        border-top: 1px solid #363648;
+        padding-top: 10px;
+      }
+      .logo {
+        margin-bottom: 10px;
+      }
+      .menu__link {
+        font-size: 12px;
+        padding-left: 0;
+      }
+      .menu__link-img {
+        margin-right: 5px;
+      }
+    }
+    @media (max-width: 512px) {
+      .container {
+        padding: 0 10px;
+      }
+      .header {
+        background-color: #161626;
+      }
+      .btn-box {
+        justify-content: space-between;
+      }
+      .log-in {
+        font-size: 13px;
+      }
+      .btn-header {
+        font-size: 12px;
+        padding: 0 10px;
+      }
+      .baner {
+        margin-top: 100px;
+        height: 190px;
+      }
+      .baner__title {
+        font-size: 30px;
+        width: 100%;
+        text-align: center;
+        bottom: 0;
+      }
+      .about {
+        padding-bottom: 20px;
+      }
+      .about__inner {
+        padding: 20px 10px;
+      }
+      .btn-bonus {
+        font-size: 16px;
+      }
+      .plus__box,
+      .minus__box {
+        width: 100%;
+      }
+      .questions__label {
+        padding: 15px 28px 15px 15px;
+      }
+      .questions__label::after {
+        right: 15px;
+        width: 1.5px;
+      }
+      .questions__label::before {
+        right: 22px;
+        width: 1.5px;
+      }
+      .footer__menu-list {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <a href="https://vavada.hr">
+            <img class="logo" src="images/logo.svg" alt="logo" width="200" height="31" loading="eager" />
+          </a>
+          <div class="btn-box">
+            <a class="log-in" href="go.html">Подключится</a>
+            <a class="btn btn-header" href="go.html">Зарегистрироваться</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="baner">
+        <h1 class="baner__title">Вавада Бонусы</h1>
+      </section>
+      <div class="navigation">
+        <div class="container">
+          <nav class="menu">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a class="menu__link" href="https://vavada.hr/casino-games" style="color: #17eada">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-777.svg"
+                    width="62"
+                    height="35"
+                    loading="lazy"
+                    alt="vavada games"
+                  />
+                  Казино Игры
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="https://vavada.hr/pay" style="color: #de593e">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-payments.svg"
+                    width="54"
+                    height="44"
+                    loading="lazy"
+                    alt="vavada payments"
+                  />
+                  Способы Oплаты
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="https://vavada.hr/mobile-casino" style="color: #6ef770">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-mobile.webp"
+                    width="24"
+                    height="40"
+                    loading="lazy"
+                    alt="vavada mobile"
+                  />
+                  Мобильное Казино
+                </a>
+              </li>
+              <li class="menu__item active">
+                <a class="menu__link" href="https://vavada.hr/bonuses" style="color: #e8ce3a">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-bonuses.svg"
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                    alt="vavada bonuses"
+                  />
+                  Бонусы
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <section class="about">
+        <div class="container">
+          <div class="about__inner">
+            <h2 class="about__title">
+              <a class="about__title-link" href="go.html">100% БОНУС ДО €920 И 100 БЕСПЛАТНЫХ ВРАЩЕНИЙ</a>
+            </h2>
+            <a class="btn btn-bonus" href="go.html">Получить бонус</a>
+            <p>
+              Что любят игроки онлайн-казино? Подарки! Если вы также являетесь прожорливым охотником за бонусами, то вы пришли по
+              адресу, потому что мы расскажем вам о настоящем сладком угощении, любимом казино Европы -
+              <a class="accent-color" href="go.html">Вавада</a>. Бонусы Вавада - они достойны восхищения. 100 бездепозитных спинов
+              и 100% бонус на первый депозит до $1000. Такие щедрые предложения трудно найти в широком мире онлайн-казино, но
+              здесь они есть - далеко искать не надо. В этой статье мы расскажем вам о приветственном бонусе, программе лояльности
+              и других специальных предложениях от Vavada.
+            </p>
+            <p>
+              Бонусы казино. В наши дни без них немыслима игра в онлайн-казино. Безрисковые спины, кешбэк, бонус за знакомство,
+              бесплатные вращения и другие бонусы легко доступны каждому игроку. Онлайн-казино предоставляют бонусы для
+              привлечения новых клиентов, а также для удержания существующих. Одни компании предлагают более крупные подарки,
+              другие - более мелкие. Мы можем с радостью сказать, что Вавада Казино - одно из тех, кто позаботился о впечатляющих
+              бонусах!
+            </p>
+            <h2 class="title">ВАВАДА БОНУС ДЛЯ НОВЫХ КЛИЕНТОВ</h2>
+            <p>
+              Не секрет, что лучшие бонусы онлайн-казино достаются новым игрокам. Казино Vavada особенно балует новых игроков: 100
+              бездепозитных бесплатных вращений и 100% бонус на первый депозит до $1 000. Бездепозитный бонус казино может
+              показаться некоторым игрокам непонятным "чудом", так как подобная акция не предлагается в отечественных
+              онлайн-казино. Более подробная информация о бонусе для новых клиентов Вавады ниже:
+            </p>
+            <h3>1) 100 БЕСПЛАТНЫХ ВРАЩЕНИЙ БЕЗ ДЕПОЗИТА</h3>
+            <p>
+              Все новые игроки казино Вавада автоматически получают шанс выиграть 100 бесплатных вращений на игровом автомате
+              Great Pigsby Megaways от Relax Gaming. После регистрации вам необходимо зайти в менеджер аккаунта и активировать
+              подарок в виде бездепозитных спинов. 100 бездепозитных спинов - каждый стоимостью 0,20 доллара
+              <a class="accent-color" href="go.html">США</a>. После активации бездепозитных бесплатных вращений просто перейдите к
+              популярному слоту Great Pigsby и сделайте 100 вращений без риска. Возможно, вам повезет, и вы сорвете максимальный
+              приз в 20 000x.
+            </p>
+            <p>
+              100 бесплатных вращений без депозита звучит как идеальный бонус, но важно упомянуть условия этой акции - условия по
+              ставкам. Вам нужно будет отыграть всю выигранную сумму 20 раз, прежде чем вы сможете снять ее со своего счета в
+              Вавада Казино. Впрочем, это не слишком странно, поскольку условия отыгрыша прилагаются практически к каждому бонусу
+              зарубежных казино.
+            </p>
+            <h3>2) 100% БОНУС НА ПЕРВЫЙ ДЕПОЗИТ ДО $1000</h3>
+            <p>
+              Если вы закончили со "стартером" или бесплатными вращениями, вы готовы к основному блюду - 100% бонусу на первый
+              депозит до $1000. Этот бонус позволяет игрокам получить от $10 до $1000 - сколько вы внесете, столько Вавада вам и
+              начислит. Конечно, к этому бонусу также прилагаются условия по ставкам, и они немного больше, чем бесплатные
+              вращения - 35x.
+            </p>
+            <img class="about__img" src="images/bonus-1.webp" width="600" height="189" loading="lazy" alt="bonus" />
+            <h2 class="title">ПРОГРАММА ЛОЯЛЬНОСТИ</h2>
+            <p>
+              Да, команда Вавады позаботилась и о программе лояльности или VIP-программе. Это довольно распространено в
+              современном мире онлайн-казино. Играйте в <a class="accent-color" href="go.html">игры казино Вавада</a>, получайте
+              деньги и поднимайтесь по лестнице лояльности. Чем больше вы делаете, тем выше поднимаетесь! VIP-программа Вавада
+              состоит из шести уровней:
+            </p>
+            <ul>
+              <li>Новичок (Beginner) - каждый клиент Vavada автоматически зачисляется на этот уровень!</li>
+              <li>Игрок (Player) - после достижения 15 долларов новичок "крестится" как игрок;</li>
+              <li>Бронза (Bronze) - сделайте ставку $250 и вы станете членом Бронзового клуба;</li>
+              <li>Серебро(Silver) - Выделите $4000 и станете очень ценным Серебряным участником;</li>
+              <li>Золото (Gold) - Вдвое более усердные игроки, которые превысили $8,000, называются золотыми клиентами;</li>
+              <li>
+                Платинум (Platinium) - высшего уровня VIP-программы достигают те, кто отыграл $50 000 в играх казино Вавада.
+              </li>
+            </ul>
+            <p>Каковы основные преимущества участников программы лояльности?</p>
+            <ul>
+              <li><b>Бонусы казино Вавада</b>: бесплатные вращения, кешбэк бонусы, безрисковые вращения, бонусы на депозит;</li>
+              <li>
+                Rakeback или <b>денежных возврат</b>: ежемесячный возврат денег с потерь. Чем выше VIP-уровень, тем выше процент
+                возврата средств;
+              </li>
+              <li>
+                <b>Турниры по слотам</b> - ваш уровень лояльности является билетом для участия в турнирах по слотам и борьбы за
+                огромные денежные призы;
+              </li>
+              <li><b>Персональный менеджер аккаунта;</b></li>
+              <li><b>Специальные поздравления в праздников.</b></li>
+            </ul>
+            <h2 class="title">ТУРНИРЫ ПО ИГРОВЫМ АВТОМАТАМ</h2>
+            <p>
+              Если обычная игра в слоты становится немного скучной, у Вавада есть дополнительное развлечение - турниры по слотам.
+              На сайте казино Вавада есть специальный раздел "Турниры", на который обязательно стоит обратить внимание. Каждую
+              неделю игроки Вавады могут принять участие в нескольких турнирах с призами в размере $10 000, $15 000, $20 000 и
+              даже больше. Самое главное, что правила этих турниров по слотам обычно элементарны - для участия в них не нужно
+              соблюдать "море" условий. Любой игрок казино Вавады, играющий на реальные деньги, может выиграть один из трех
+              джекпотов Вавады - Minor, Major, Mega.
+            </p>
+            <h2 class="title">ВАВАДА БОНУСЫ - ПЛЮСЫ И МИНУСЫ</h2>
+            <div class="plus-minus__box">
+              <div class="plus__box">
+                <h3>ПЛЮСЫ</h3>
+                <ul class="plus__list">
+                  <li class="plus__list-item">Отличный бонус за знакомство</li>
+                  <li class="plus__list-item">Отличная программа лояльности</li>
+                  <li class="plus__list-item">Возможность играть в игры казино бесплатно</li>
+                  <li class="plus__list-item">Возможность выиграть реальные деньги без риска</li>
+                  <li class="plus__list-item">Турниры по слотам</li>
+                </ul>
+              </div>
+              <div class="minus__box">
+                <h3>МИНУСЫ</h3>
+                <ul class="minus__list">
+                  <li class="minus__list-item">Условия пари (Wager)</li>
+                  <li class="minus__list-item">Информация о бонусах и специальных предложениях могла бы быть более доступной</li>
+                </ul>
+              </div>
+            </div>
+            <h2 class="title">КАК Я МОГУ ПОЛУЧИТЬ БОНУС ОТ VAVADA?</h2>
+            <p>
+              Итак, что... Хотите выиграть 100 бездепозитных бесплатных вращений и 100% бонус на первый депозит? Понятно. Трудно
+              отказаться от такого сочного предложения! И это не только бонусы в Вавады, но и большой выбор игр казино. Вот что
+              вам нужно сделать, чтобы получить желанный бонус от Вавады.
+            </p>
+            <h3>1) НАЖМИТЕ НА КНОПКУ "ПОЛУЧИТЬ БОНУС”</h3>
+            <p>
+              Vavada Casino - зарубежное казино, поэтому вы можете посетить сайт через специальную "Зеркальную ссылку". Вы всегда
+              найдете активную ссылку на нашем сайте! Чтобы получить бонус Вавады, нажмите на кнопку "Claim Bonus" на главной
+              странице нашего сайта. Это приведет вас к ссылке на казино Вавада.
+            </p>
+            <h3>2) ЗАРЕГИСТРИРУЙТЕСЬ В КАЗИНО ВАВАДА</h3>
+            <p>
+              Как только вы перейдете на сайт казино Вавада, нажмите на кнопку "Регистрация". Вам потребуется минута, чтобы
+              <a class="accent-color" href="go.html">создать свой аккаунт в Вавада</a>. Отлично, что? Все, что вам нужно сделать,
+              это ввести свой адрес электронной почты и придумать надежный пароль. Укажите предпочитаемую валюту и все - вы
+              полноправный игрок Вавада Казино онлайн. Позже команда онлайн-казино может также попросить вас ввести и проверить
+              ваши личные данные - вы можете играть в казино, даже не указывая имени.
+            </p>
+            <h3>3) АКТИВИРУЙТЕ БОНУСЫ</h3>
+            <p>
+              Зайдите в свой профиль игрока и просмотрите доступные бонусы. Первоначально активируйте 100 бесплатных вращений без
+              депозита. После их завершения активируйте предложение для новых игроков 100% на первый депозит.
+            </p>
+            <h3>4) ИСПОЛЬЗУЙТЕ БЕСПЛАТНЫЕ ВРАЩЕНИЯ</h3>
+            <p>
+              Зайдите в автомат Great Pigsby Megaways от Relax Gaming и сделайте 100 спинов. Каждый из них стоит $0,20. Поскольку
+              это бездепозитные бесплатные вращения, у вас нет шансов проиграть - только выиграть! Помните, что вы можете
+              обналичить свой выигрыш только после того, как будет поставлена определенная сумма.
+            </p>
+            <h3>5) СДЕЛАЙТЕ СВОЙ ПЕРВЫЙ ДЕПОЗИТ И УМНОЖЬТЕ ЕГО НА 2X!</h3>
+            <p>
+              Как прошли бесплатные вращения? Еще ничего не закончилось! В Вавада Казино умножит ваш первый депозит на 2! Внесите
+              депозит от $10 до $1,000, и ваш баланс удвоится. Этот 100% бонус на депозит - настоящая выгодная сделка. Помните,
+              что на это предложение также распространяется требование о повторном отыгрыше.
+            </p>
+            <h2 class="title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ – ЧЗВ</h2>
+            <div class="content__inner">
+              <div class="questions__item">
+                <input class="questions__input" type="checkbox" id="question-1" />
+                <label class="questions__label" for="question-1">Что такое бонус Вавады для новых игроков?</label>
+                <div class="questions__content">
+                  Онлайн-казино Вавада предлагает отличный приветственный бонус для новых клиентов. Во-первых, новые пользователи
+                  получают 100 бесплатных вращений без депозита на игровом автомате Great Pigsby Megaways. После этого новый игрок
+                  получает 100% бонус на первый депозит в размере до $1000.
+                </div>
+              </div>
+              <div class="questions__item">
+                <input class="questions__input" type="checkbox" id="question-2" />
+                <label class="questions__label" for="question-2">Есть ли у бонуса Вавады условия срабатывания?</label>
+                <div class="questions__content">
+                  Да, у бонуса для новых клиентов Вавады есть срабатывание. Как для бесплатных вращений, так и для бонуса на
+                  депозит. Таковы правила в принципе во всех зарубежных онлайн-казино.
+                </div>
+              </div>
+              <div class="questions__item">
+                <input class="questions__input" type="checkbox" id="question-3" />
+                <label class="questions__label" for="question-3">Есть ли в казино Vavada программа лояльности?</label>
+                <div class="questions__content">
+                  Да, у Vavada Casino одна из лучших программ лояльности, предлагаемых в онлайн-казино. В ней участвуют все
+                  клиенты, но, конечно, лучшие подарки (бесплатные вращения, бонусы на депозит, безрисковые вращения и т.д.)
+                  достаются самым активным игрокам.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="content__author">
+        <div class="container">
+          <div class="content__author-inner">
+            <img
+              class="content__photo"
+              src="images/Vilis-Liepnieks.webp"
+              width="60"
+              height="60"
+              loading="lazy"
+              alt="author photo"
+            />
+            <p class="content__descr">
+              Как игрок в казино, я имею более 10 лет "опыта". Примерно столько же времени я проработал в игорной индустрии - как
+              создатель контента или копирайтер, как специалист по поддержке клиентов и как маркетолог.
+            </p>
+            <p class="content__name">Вилис Лиепниекс</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <nav class="footer__menu">
+            <ul class="footer__menu-list">
+              <li class="footer__menu-item"><a class="footer__menu-link" href="https://vavada.hr">Вавада</a></li>
+              <li class="footer__menu-item"><a class="footer__menu-link" href="https://vavada.hr/bonuses">Бонусы</a></li>
+              <li class="footer__menu-item">
+                <a class="footer__menu-link" href="https://vavada.hr/casino-games">Казино Игры</a>
+              </li>
+              <li class="footer__menu-item"><a class="footer__menu-link" href="https://vavada.hr/pay">Способы Oплаты</a></li>
+              <li class="footer__menu-item">
+                <a class="footer__menu-link" href="https://vavada.hr/mobile-casino">Мобильное Казино</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright">2023 Vavada-ee.com</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

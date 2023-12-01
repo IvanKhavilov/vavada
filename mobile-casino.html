@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Играть в казино с мобильного смартфона еще никогда не было так удобно. Попробуйте мобильную версию популярного казино Вавада и получите приветственный бонус!"
+    />
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <title>Мобильное казино Вавада | Играть со смартфона еще удобнее</title>
+  </head>
+  <style>
+    :root {
+      --accent-color: #f66766;
+    }
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+        'Helvetica Neue', sans-serif;
+      font-size: 16px;
+      color: #fff;
+      background: #1c1e2f url('images/background.webp');
+      background-repeat: repeat-y;
+      background-size: contain;
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    h1 {
+      margin: 0;
+    }
+    p {
+      margin: 0 0 20px 0;
+    }
+    ol,
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .title {
+      padding: 10px 0;
+      border-bottom: 1px solid hsla(0, 0%, 100%, 0.25);
+    }
+    .btn {
+      font-size: 18px;
+      box-shadow: 0 3px 0 0 #871628, 0 4px 4px 0 #000;
+      background-color: #fe284a;
+      height: 30px;
+      padding: 0 30px;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 22px;
+      font-weight: 800;
+      border-radius: 50px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn:hover {
+      box-shadow: 0 3px 0 0 #871628, 0 4px 4px 0 #000, inset 0 15px 15px -3px hsla(0, 0%, 100%, 0.4);
+    }
+    .btn:active {
+      transform: translateY(3px);
+      box-shadow: inset 0 2px 0 0 #871628, inset 0 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    .header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      padding: 10px 0;
+      background-color: rgba(37, 37, 54, 0.95);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .btn-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .log-in {
+      font-size: 14px;
+      margin-right: 20px;
+      color: #fff;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+    .btn-header {
+      font-size: 14px;
+    }
+    .baner {
+      height: 380px;
+      background-image: url('images/baner-full.webp');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    .overlay {
+      text-align: center;
+    }
+    .baner__title {
+      background: linear-gradient(180deg, #ffee5b, #ffee5b 40%, #ffd303 45%, #f4b001 50%, #ffd303 55%, #ffee5b 60%, #ffee5b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 42px;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .navigation {
+      background-color: #1d1d2f;
+      border-bottom: 1px dotted #313047;
+    }
+    .menu__list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .menu__item {
+      position: relative;
+      width: 25%;
+      margin-bottom: 0;
+    }
+    .menu__item.active {
+      background-color: hsla(0, 0%, 100%, 0.05);
+      border-radius: 10px;
+    }
+    .menu__item::after {
+      content: '';
+      position: absolute;
+      top: 10.5px;
+      right: 0;
+      height: 32px;
+      width: 2px;
+      background-color: #313047;
+    }
+    .menu__item:last-child::after {
+      background-color: transparent;
+    }
+    .menu__link:hover {
+      background-color: hsla(0, 0%, 100%, 0.05);
+    }
+    .menu__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 800;
+      align-items: center;
+      height: 56px;
+      border-radius: 10px;
+    }
+    .menu__link-img {
+      margin-right: 10px;
+    }
+    .about {
+      padding: 40px 0;
+    }
+    .about__inner {
+      border: 1px solid hsla(0, 0%, 100%, 0.15);
+      border-radius: 10px;
+      box-shadow: 0 8px 10px #000;
+      background-color: #262c46;
+      padding: 30px;
+    }
+    .about__title {
+      text-decoration: underline;
+      text-align: center;
+    }
+    .about__title-link {
+      color: #fff;
+    }
+    .btn-bonus {
+      padding: 25px;
+      width: 240px;
+      margin: 10px auto 40px;
+    }
+    .accent-color {
+      color: var(--accent-color);
+    }
+    .questions__item {
+      position: relative;
+      border-radius: 5px;
+      box-shadow: 0 8px 20px rgba(9, 28, 83, 0.08);
+      max-width: 800px;
+      background-color: #191921;
+      border-radius: 20px;
+    }
+    .questions__item + .questions__item {
+      margin-top: 15px;
+    }
+    .questions__input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+    .questions__label {
+      display: block;
+      padding: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+    .questions__label::after,
+    .questions__label::before {
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      top: 43%;
+      transform: translateY(-50%);
+      height: 10px;
+      width: 2px;
+      transition: all 0.5s;
+    }
+    .questions__label::after {
+      right: 23px;
+      transform: rotate(45deg);
+    }
+    .questions__label::before {
+      right: 30px;
+      transform: rotate(-45deg);
+    }
+    .questions__content {
+      padding: 0 20px 20px 20px;
+      background-color: #191921;
+      display: none;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+    .questions__input:checked ~ .questions__label::after {
+      transform: rotate(135deg);
+    }
+    .questions__input:checked ~ .questions__label::before {
+      transform: rotate(-135deg);
+    }
+    .questions__input:checked ~ .questions__content {
+      display: block;
+    }
+    .content__photo {
+      grid-area: photo;
+      margin-right: 10px;
+      margin-top: 4px;
+    }
+    .content__descr {
+      grid-area: descr;
+      margin-bottom: 10px;
+    }
+    .content__name {
+      grid-area: name;
+      font-weight: 900;
+    }
+    .content__author-inner {
+      margin-bottom: 40px;
+      display: grid;
+      max-width: 600px;
+      grid-template-areas:
+        'photo descr'
+        '. name';
+    }
+    .footer {
+      background-color: #191921;
+      padding: 40px 0;
+    }
+    .footer__menu-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .footer__menu-link {
+      color: #fff;
+    }
+    .copyright {
+      text-align: center;
+    }
+    @media (max-width: 955px) {
+      body {
+        background-image: none;
+      }
+      .about__img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .menu__item {
+        width: 48%;
+        margin-right: 5px;
+      }
+      .menu__item:nth-child(2)::after {
+        display: none;
+      }
+      .menu__link {
+        justify-content: start;
+        padding: 0 10px;
+      }
+    }
+    @media (max-width: 650px) {
+      .header__inner {
+        justify-content: center;
+      }
+      .btn-box {
+        width: 100%;
+        border-top: 1px solid #363648;
+        padding-top: 10px;
+      }
+      .logo {
+        margin-bottom: 10px;
+      }
+      .menu__link {
+        font-size: 12px;
+        padding-left: 0;
+      }
+      .menu__link-img {
+        margin-right: 5px;
+      }
+    }
+    @media (max-width: 512px) {
+      .container {
+        padding: 0 10px;
+      }
+      .header {
+        background-color: #161626;
+      }
+      .btn-box {
+        justify-content: space-between;
+      }
+      .log-in {
+        font-size: 13px;
+      }
+      .btn-header {
+        font-size: 12px;
+        padding: 0 10px;
+      }
+      .baner {
+        margin-top: 100px;
+        height: 190px;
+      }
+      .baner__title {
+        font-size: 30px;
+        width: 100%;
+        bottom: 0;
+        z-index: 2;
+      }
+      .overlay {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 78px;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      .about {
+        padding-bottom: 20px;
+      }
+      .about__inner {
+        padding: 20px 10px;
+      }
+      .questions__label {
+        padding: 15px 28px 15px 15px;
+      }
+      .questions__label::after {
+        right: 15px;
+        width: 1.5px;
+      }
+      .questions__label::before {
+        right: 22px;
+        width: 1.5px;
+      }
+      .footer__menu-list {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <a href="https://vavada.hr">
+            <img class="logo" src="images/logo.svg" alt="logo" width="200" height="31" loading="eager" />
+          </a>
+          <div class="btn-box">
+            <a class="log-in" href="go.html">Подключится</a>
+            <a class="btn btn-header" href="go.html">Зарегистрироваться</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="baner">
+        <div class="overlay">
+          <h1 class="baner__title">Мобильное Казино Вавада</h1>
+        </div>
+      </section>
+      <div class="navigation">
+        <div class="container">
+          <nav class="menu">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a class="menu__link" href="https://vavada.hr/casino-games" style="color: #17eada">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-777.svg"
+                    width="62"
+                    height="35"
+                    loading="lazy"
+                    alt="vavada games"
+                  />
+                  Казино Игры
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="https://vavada.hr/pay" style="color: #de593e">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-payments.svg"
+                    width="54"
+                    height="44"
+                    loading="lazy"
+                    alt="vavada payments"
+                  />
+                  Способы Oплаты
+                </a>
+              </li>
+              <li class="menu__item active">
+                <a class="menu__link" href="" style="color: #6ef770">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-mobile.webp"
+                    width="24"
+                    height="40"
+                    loading="lazy"
+                    alt="vavada mobile"
+                  />
+                  Мобильное Казино
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="https://vavada.hr/bonuses" style="color: #e8ce3a">
+                  <img
+                    class="menu__link-img"
+                    src="images/vavada-bonuses.svg"
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                    alt="vavada bonuses"
+                  />
+                  Бонусы
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <section class="about">
+        <div class="container">
+          <div class="about__inner">
+            <h2 class="about__title">
+              <a class="about__title-link" href="go.html">100% БОНУС ДО €920 И 100 БЕСПЛАТНЫХ ВРАЩЕНИЙ</a>
+            </h2>
+            <a class="btn btn-bonus" href="go.html">Получить бонус</a>
+            <p>
+              Технологии и Всемирная паутина захватили современную жизнь. Нам больше не нужно выходить из дома, чтобы заказать
+              еду. Чтобы работать и общаться с другими людьми, нам достаточно включить компьютер или взять в руки мобильный
+              смартфон. Азартные игры также нашли "теплое" место в бескрайних глубинах интернета. В этой статье мы расскажем вам
+              немного больше о необычном зарубежном онлайн-казино - Vavada. Точнее, посмотрим, подходит ли вам мобильное казино
+              Вавада!
+            </p>
+            <h2 class="title">ЕСТЬ ЛИ У ВАВАДЫ МОБИЛЬНОЕ ПРИЛОЖЕНИЕ?</h2>
+            <p>
+              Некоторые онлайн-казино решили создать специальные мобильные приложения, чтобы клиентам было еще проще наслаждаться
+              любимыми играми. Обычно их можно найти и загрузить на сайте казино. Приложения оптимизированы таким образом, чтобы
+              игроки не отвлекались и могли сосредоточиться исключительно на развлечениях. Следует отметить, что приложения были
+              более важны около 5 лет назад, потому что сейчас сайты онлайн-казино достаточно развиты, чтобы сделать все
+              легкодоступным и удобным для игроков на смартфонах.
+            </p>
+            <p>
+              Итак... является ли Vavada мобильным казино? К сожалению, нет. Но... значит ли это, что
+              <a class="accent-color" href="go.html">в Ваваду</a> нельзя играть со смартфона? Вовсе нет! В наше время сайты
+              онлайн-казино очень редко делают приложения, потому что игроки редко ими пользуются и их актуальность очень
+              минимальна. Учитывая, что Vavada - одна из самых простых игорных платформ в индустрии, играть с телефона абсолютно
+              не страшно. Все игры казино работают, платежи осуществляются легко, а бонусы начисляются всем пользователям. Что еще
+              может понадобиться! Или нет?
+            </p>
+            <h3>ИГРАТЬ В ВАВАДУ С ANDROID И IOS</h3>
+            <p>
+              Если вы не уверены, можно ли играть в казино Вавада с вашего смарт-устройства, мы можем вас успокоить - вы можете
+              играть в этом зарубежном казино с любого электрического устройства со стабильным интернет-соединением. Android, iOs
+              или Windows. Неважно! Откройте веб-браузер вашего телефона и отправляйтесь в Вавада! Мы гарантируем, что вам
+              понравится.
+            </p>
+            <h2 class="title">МОГУ ЛИ Я ПОЛУЧИТЬ БОНУС ЗА ЗНАКОМСТВО СО СВОЕГО МОБИЛЬНОГО СМАРТФОНА?</h2>
+            <p>
+              Как вы, возможно, уже знаете, <a class="accent-color" href="go.html">бонус Вавада</a> для новых клиентов заслуживает
+              внимания. За регистрацию вы получите 100 бесплатных вращений без депозита на игровом автомате The Great Pigsby
+              Megaways и 100% бонус на первый депозит до €920.
+            </p>
+            <p>
+              Однако некоторые из наших игроков задаются вопросом - могут ли они также получить вавада-предложение от мобильного
+              казино? Как мы уже говорили выше, конечно же, вы можете получить бонус Вавада и с мобильного телефона!
+            </p>
+            <img class="about__img" src="images/mobile-casino-img.webp" width="600" height="390" loading="lazy" alt="bonus" />
+
+            <h2 class="title">КАКИЕ ИГРЫ КАЗИНО ДОСТУПНЫ С ВАШЕГО МОБИЛЬНОГО ТЕЛЕФОНА?</h2>
+            <p>
+              Развлечения - одна из сильных сторон Вавады.
+              <a class="accent-color" href="go.html">Выбор игр в казино Вавада</a> состоит из более чем 4 000 различных игр. Среди
+              них слоты, настольные игры, карточные игры, видеопокер, лотереи, игровые шоу и живые игры казино. Все они также
+              доступны для посетителей мобильного казино!
+            </p>
+            <p>
+              Чтобы начать играть в Ваваду с мобильного телефона, нажмите на кнопку "Получить бонус", которая приведет вас на
+              официальный сайт. Далее создайте аккаунт - это займет не более 1 минуты. Затем выберите один из
+              <a class="accent-color" href="go.html">способов оплаты Vavada</a> и сделайте свой первый депозит. Удачи!
+            </p>
+            <h2 class="title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ – ЧЗВ</h2>
+            <div class="content__inner">
+              <div class="questions__item">
+                <input class="questions__input" type="checkbox" id="question-1" />
+                <label class="questions__label" for="question-1">Можно ли играть в "Ваваду" с мобильного телефона?</label>
+                <div class="questions__content">
+                  Да, конечно! Играть в казино Вавада с мобильного телефона - отличный выбор. Веб-сайт прост в использовании, а
+                  игры так же увлекательны, как и с экрана компьютера.
+                </div>
+              </div>
+              <div class="questions__item">
+                <input class="questions__input" type="checkbox" id="question-2" />
+                <label class="questions__label" for="question-2">Есть ли приложение для Vavada?</label>
+                <div class="questions__content">
+                  К сожалению, казино Вавада не создало специального приложения, чтобы вывести игру на телефоне на новый уровень.
+                </div>
+              </div>
+              <div class="questions__item">
+                <input class="questions__input" type="checkbox" id="question-3" />
+                <label class="questions__label" for="question-3"
+                  >Могу ли я зарегистрироваться в казино Вавада со своего смартфона?</label
+                >
+                <div class="questions__content">
+                  Да. Для регистрации достаточно ввести электронную почту и пароль, а создание учетной записи со смартфона
+                  занимает меньше минуты.
+                </div>
+              </div>
+              <div class="questions__item">
+                <input class="questions__input" type="checkbox" id="question-4" />
+                <label class="questions__label" for="question-4">Как сделать депозит с мобильного телефона?</label>
+                <div class="questions__content">
+                  Зайдите в свой профиль игрока и нажмите на кнопку "пополнить счет". Выберите один из предложенных способов
+                  оплаты, введите сумму и нажмите "продолжить". Далее подтвердите платеж на свой электронный кошелек, банковский
+                  счет или счет криптокошелька. Вот и все!
+                </div>
+              </div>
+              <div class="questions__item">
+                <input class="questions__input" type="checkbox" id="question-5" />
+                <label class="questions__label" for="question-5">Хорошее ли мобильное казино Вавада?</label>
+                <div class="questions__content">
+                  На наш взгляд, да. Хотя у Vavada нет мобильного приложения, сайт полностью оптимизирован для пользователей
+                  мобильных смартфонов.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="content__author">
+        <div class="container">
+          <div class="content__author-inner">
+            <img
+              class="content__photo"
+              src="images/Vilis-Liepnieks.webp"
+              width="60"
+              height="60"
+              loading="lazy"
+              alt="author photo"
+            />
+            <p class="content__descr">
+              Как игрок в казино, я имею более 10 лет "опыта". Примерно столько же времени я проработал в игорной индустрии - как
+              создатель контента или копирайтер, как специалист по поддержке клиентов и как маркетолог.
+            </p>
+            <p class="content__name">Вилис Лиепниекс</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <nav class="footer__menu">
+            <ul class="footer__menu-list">
+              <li class="footer__menu-item"><a class="footer__menu-link" href="https://vavada.hr">Вавада</a></li>
+              <li class="footer__menu-item"><a class="footer__menu-link" href="https://vavada.hr/bonuses">Бонусы</a></li>
+              <li class="footer__menu-item">
+                <a class="footer__menu-link" href="https://vavada.hr/casino-games">Казино Игры</a>
+              </li>
+              <li class="footer__menu-item"><a class="footer__menu-link" href="https://vavada.hr/pay">Способы Oплаты</a></li>
+              <li class="footer__menu-item">
+                <a class="footer__menu-link" href="https://vavada.hr/mobile-casino">Мобильное Казино</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright">2023 Vavada-ee.com</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
