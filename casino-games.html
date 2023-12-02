@@ -12,7 +12,7 @@
   </head>
   <style>
     :root {
-      --accent-color: #f6a7a7;
+      --accent-color: #f66766;
     }
     *,
     *::after,
@@ -58,7 +58,7 @@
     .btn {
       font-size: 18px;
       box-shadow: 0 3px 0 0 #871628, 0 4px 4px 0 #000;
-      background-color: #fe284a;
+      background-color: #b20119;
       height: 30px;
       padding: 0 30px;
       letter-spacing: 1px;
@@ -391,15 +391,13 @@
       .header {
         background-color: #161626;
       }
-      .btn-box {
-        justify-content: space-between;
-      }
       .log-in {
         font-size: 13px;
       }
       .btn-header {
         font-size: 12px;
-        padding: 0 10px;
+        padding: 0 20px;
+        letter-spacing: 0;
       }
       .baner {
         margin-top: 100px;
@@ -410,6 +408,22 @@
         width: 100%;
         text-align: center;
         bottom: 0;
+      }
+      .menu__link--casino {
+        width: 42px;
+        height: 35px;
+      }
+      .menu__link--pay {
+        width: 42px;
+        height: 44px;
+      }
+      .menu__link--mobile {
+        width: 25px;
+        height: 40px;
+      }
+      .menu__link--bonus {
+        width: 42px;
+        height: 36px;
       }
       .overlay {
         position: absolute;
@@ -448,7 +462,7 @@
         align-items: flex-start;
       }
       .footer__menu-item {
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
     }
   </style>
@@ -479,7 +493,7 @@
               <li class="menu__item active">
                 <a class="menu__link" href="https://vavada.hr/casino-games" style="color: #17eada">
                   <img
-                    class="menu__link-img"
+                    class="menu__link-img menu__link--casino"
                     src="images/vavada-777.svg"
                     width="62"
                     height="35"
@@ -490,9 +504,9 @@
                 </a>
               </li>
               <li class="menu__item">
-                <a class="menu__link" href="https://vavada.hr/pay" style="color: #de593e">
+                <a class="menu__link" href="https://vavada.hr/pay" style="color: #e47658">
                   <img
-                    class="menu__link-img"
+                    class="menu__link-img menu__link--pay"
                     src="images/vavada-payments.svg"
                     width="54"
                     height="44"
@@ -505,7 +519,7 @@
               <li class="menu__item">
                 <a class="menu__link" href="https://vavada.hr/mobile-casino" style="color: #6ef770">
                   <img
-                    class="menu__link-img"
+                    class="menu__link-img menu__link--mobile"
                     src="images/vavada-mobile.webp"
                     width="24"
                     height="40"
@@ -518,7 +532,7 @@
               <li class="menu__item">
                 <a class="menu__link" href="https://vavada.hr/bonuses" style="color: #e8ce3a">
                   <img
-                    class="menu__link-img"
+                    class="menu__link-img menu__link--bonus"
                     src="images/vavada-bonuses.svg"
                     width="36"
                     height="36"
@@ -541,18 +555,19 @@
             <a class="btn btn-bonus" href="go.html">Получить бонус</a>
             <p>
               Все больше и больше игроков онлайн-казино со всей Европы предпочитают играть в
-              <a class="accent-color" href="go.html">казино Вавада</a>. Почему? В основном из-за "бесконечного" ассортимента
-              развлечений - более 4 000 игр казино Вавада - это безумно щедрый ассортимент игр. Слоты, живое казино, настольные
-              игры... Вавада казино предлагает самые последние игры казино от ведущих компаний-разработчиков программного
-              обеспечения для iGaming индустрии - Pragmatic Play, Hacksaw Gaming, Evolution Gaming, Play'n Go, NetEnt, Microgaming
-              и др.
+              <b><a class="accent-color" href="go.html">казино Вавада</a></b
+              >. Почему? В основном из-за "бесконечного" ассортимента развлечений - более 4 000 игр казино Вавада - это безумно
+              щедрый ассортимент игр. Слоты, живое казино, настольные игры... Вавада казино предлагает самые последние игры казино
+              от ведущих компаний-разработчиков программного обеспечения для iGaming индустрии - Pragmatic Play, Hacksaw Gaming,
+              Evolution Gaming, Play'n Go, NetEnt, Microgaming и др.
             </p>
             <p>
               Стоит отметить, что игры в казино - не единственная сильная сторона Вавады. Бонус Vavada для новых игроков также
               играет большую роль. Во-первых, новые клиенты получают 100 бесплатных вращений без депозита на слоте Great Pigsby
-              Megaways от <a class="accent-color" href="go.html">Relax Gaming</a>. Во-вторых, приветственный бонус Vavada casino
-              дополняется 100% бонусом на первый депозит до $1 000. И это только для новых клиентов -
-              <a class="accent-color" href="go.html">бонусы Вавада</a> регулярно поощряют и активных пользователей.
+              Megaways от <b><a class="accent-color" href="go.html">Relax Gaming</a></b
+              >. Во-вторых, приветственный бонус Vavada casino дополняется 100% бонусом на первый депозит до $1 000. И это только
+              для новых клиентов - <b><a class="accent-color" href="go.html">бонусы Вавада</a></b> регулярно поощряют и активных
+              пользователей.
             </p>
             <h2 class="title">ПЛЮСЫ И МИНУСЫ АССОРТИМЕНТА ИГР ВАВАДА</h2>
             <div class="plus-minus__box">
@@ -621,11 +636,11 @@
             <img class="about__img" src="images/casino-teble.webp" width="600" height="300" loading="lazy" alt="bonus" />
             <h3>РУЛЕТКА</h3>
             <p>
-              <a class="accent-color" href="go.html">Рулетка</a> - это одна из классических игр в казино всех времен, доступная не
-              только в каждом наземном казино, но и на сайтах онлайн-азартных игр. Игроки любят рулетку, потому что в этой игре
-              можно делать самые разные ставки. Не только на номер, на который упадет шарик в колесе рулетки, но и на цвета,
-              линии, сектора и т.д. На сайте Вавада в настольных игр вы найдете рулетку от первого лица, американскую рулетку,
-              виртуальную рулетку, молниеносную рулетку, VIP европейскую рулетку и другие вариации рулетки.
+              <b><a class="accent-color" href="go.html">Рулетка</a></b> - это одна из классических игр в казино всех времен,
+              доступная не только в каждом наземном казино, но и на сайтах онлайн-азартных игр. Игроки любят рулетку, потому что в
+              этой игре можно делать самые разные ставки. Не только на номер, на который упадет шарик в колесе рулетки, но и на
+              цвета, линии, сектора и т.д. На сайте Вавада в настольных игр вы найдете рулетку от первого лица, американскую
+              рулетку, виртуальную рулетку, молниеносную рулетку, VIP европейскую рулетку и другие вариации рулетки.
             </p>
             <h3>БЛЭКДЖЕК</h3>
             <p>
@@ -719,9 +734,10 @@
             </p>
             <h3>4) СДЕЛАЙТЕ ПЕРВЫЙ ДЕПОЗИТ</h3>
             <p>
-              Вавада предлагает широкий <a class="accent-color" href="go.html">выбор способов оплаты</a>. Вы можете пополнить счет
-              с помощью банковской карты, виртуального кошелька или криптовалюты. Вы можете выбрать сумму, которую хотите внести,
-              но имейте в виду, что Вавада умножит ее в 2 раза! Если вы внесете 500, у вас будет 1000 долларов.
+              Вавада предлагает широкий <b><a class="accent-color" href="go.html">выбор способов оплаты</a></b
+              >. Вы можете пополнить счет с помощью банковской карты, виртуального кошелька или криптовалюты. Вы можете выбрать
+              сумму, которую хотите внести, но имейте в виду, что Вавада умножит ее в 2 раза! Если вы внесете 500, у вас будет
+              1000 долларов.
             </p>
             <h3>5) ИГРАЙТЕ В ИГРЫ КАЗИНО VAVADA!</h3>
             <p>
