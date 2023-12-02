@@ -12,7 +12,7 @@
   </head>
   <style>
     :root {
-      --accent-color: #f6a7a7;
+      --accent-color: #f66766;
     }
     *,
     *::after,
@@ -176,22 +176,20 @@
       margin-right: 10px;
     }
     .games__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 15px;
       margin: 40px 0;
     }
     .game {
-      width: 220px;
       height: 220px;
       position: relative;
-      display: flex;
-      flex-direction: column;
       border-radius: 10px;
       box-shadow: 0 4px 10px 0 #000;
-      transition: transform 0.15s linear;
+    }
+    .game__img-wrapp {
+      width: 100%;
+      height: 77%;
     }
     .game__img {
       position: relative;
@@ -201,11 +199,9 @@
     }
     .game__name {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      flex: none;
-      box-sizing: border-box;
-      height: 21%;
+      height: 23%;
       border: 1px solid #393a51;
       border-top: none;
       border-bottom-left-radius: 10px;
@@ -214,7 +210,6 @@
       background-color: #161626;
       font-weight: 500;
       font-size: 14px;
-      text-align: center;
       position: relative;
       z-index: 2;
     }
@@ -322,6 +317,7 @@
     }
     .accent-color {
       color: var(--accent-color);
+      text-decoration: underline;
     }
     table {
       margin-bottom: 20px;
@@ -430,6 +426,11 @@
     .copyright {
       text-align: center;
     }
+    @media (max-width: 1025px) {
+      .games__inner {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
     @media (max-width: 955px) {
       body {
         background-image: none;
@@ -452,6 +453,11 @@
       }
       .games__inner {
         justify-content: space-around;
+      }
+    }
+    @media (max-width: 769px) {
+      .games__inner {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
     @media (max-width: 650px) {
@@ -484,15 +490,13 @@
       .header {
         background-color: #161626;
       }
-      .btn-box {
-        justify-content: space-between;
-      }
       .log-in {
         font-size: 13px;
       }
       .btn-header {
         font-size: 12px;
-        padding: 0 10px;
+        padding: 0 20px;
+        letter-spacing: 0;
       }
       .baner {
         margin-top: 100px;
@@ -504,19 +508,32 @@
         text-align: center;
         bottom: 0;
       }
+      .menu__link--casino {
+        width: 42px;
+        height: 35px;
+      }
+      .menu__link--pay {
+        width: 42px;
+        height: 44px;
+      }
+      .menu__link--mobile {
+        width: 25px;
+        height: 40px;
+      }
+      .menu__link--bonus {
+        width: 42px;
+        height: 36px;
+      }
+
       .games__inner {
         margin: 20px 0 35px;
+        grid-template-columns: repeat(2, 1fr);
       }
       .game {
-        width: 142px;
-        height: 142px;
+        height: 160px;
       }
       .game:nth-last-child(-n + 7) {
         display: none;
-      }
-      .game__img {
-        width: 100%;
-        height: 113px;
       }
       .game__name {
         font-size: 12px;
@@ -556,7 +573,7 @@
         align-items: flex-start;
       }
       .footer__menu-item {
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
     }
   </style>
@@ -564,7 +581,9 @@
     <header class="header">
       <div class="container">
         <div class="header__inner">
-          <img class="logo" src="images/logo.svg" alt="logo" width="200" height="31" loading="eager" />
+          <a href="https://vavada.hr">
+            <img class="logo" src="images/logo.svg" alt="logo" width="200" height="31" loading="eager" />
+          </a>
           <div class="btn-box">
             <a class="log-in" href="go.html">Подключится</a>
             <a class="btn btn-header" href="go.html">Зарегистрироваться</a>
@@ -583,7 +602,7 @@
               <li class="menu__item">
                 <a class="menu__link" href="https://vavada.hr/casino-games" style="color: #17eada">
                   <img
-                    class="menu__link-img"
+                    class="menu__link-img menu__link--casino"
                     src="images/vavada-777.svg"
                     width="62"
                     height="35"
@@ -596,7 +615,7 @@
               <li class="menu__item">
                 <a class="menu__link" href="https://vavada.hr/pay" style="color: #de593e">
                   <img
-                    class="menu__link-img"
+                    class="menu__link-img menu__link--pay"
                     src="images/vavada-payments.svg"
                     width="54"
                     height="44"
@@ -609,7 +628,7 @@
               <li class="menu__item">
                 <a class="menu__link" href="https://vavada.hr/mobile-casino" style="color: #6ef770">
                   <img
-                    class="menu__link-img"
+                    class="menu__link-img menu__link--mobile"
                     src="images/vavada-mobile.webp"
                     width="24"
                     height="40"
@@ -622,7 +641,7 @@
               <li class="menu__item">
                 <a class="menu__link" href="https://vavada.hr/bonuses" style="color: #e8ce3a">
                   <img
-                    class="menu__link-img"
+                    class="menu__link-img menu__link--bonus"
                     src="images/vavada-bonuses.svg"
                     width="36"
                     height="36"
@@ -640,7 +659,16 @@
         <div class="container">
           <div class="games__inner">
             <div class="game">
-              <img class="game__img" src="images/book-of-dead.webp" width="220" height="174" loading="lazy" alt="Book of Dead" />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/book-of-dead.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="Book of Dead"
+                />
+              </div>
               <div class="game__name">Book of Dead</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -648,7 +676,9 @@
               </div>
             </div>
             <div class="game">
-              <img class="game__img" src="images/3-Thunders.webp" width="220" height="174" loading="lazy" alt="7 Thunders" />
+              <div class="game__img-wrapp">
+                <img class="game__img" src="images/3-Thunders.webp" width="100%" height="100%" loading="lazy" alt="7 Thunders" />
+              </div>
               <div class="game__name">7 Thunders</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -656,14 +686,16 @@
               </div>
             </div>
             <div class="game">
-              <img
-                class="game__img"
-                src="images/sweet-bonanza.webp"
-                width="220"
-                height="174"
-                loading="lazy"
-                alt="Sweet Bonanza"
-              />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/sweet-bonanza.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="Sweet Bonanza"
+                />
+              </div>
               <div class="game__name">Sweet Bonanza</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -671,14 +703,16 @@
               </div>
             </div>
             <div class="game">
-              <img
-                class="game__img"
-                src="images/legacy-of-dead.webp"
-                width="220"
-                height="174"
-                loading="lazy"
-                alt="Legacy of Dead"
-              />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/legacy-of-dead.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="Legacy of Dead"
+                />
+              </div>
               <div class="game__name">Legacy of Dead</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -686,7 +720,9 @@
               </div>
             </div>
             <div class="game">
-              <img class="game__img" src="images/big-bamboo.webp" width="220" height="174" loading="lazy" alt="Big Bamboo" />
+              <div class="game__img-wrapp">
+                <img class="game__img" src="images/big-bamboo.webp" width="100%" height="100%" loading="lazy" alt="Big Bamboo" />
+              </div>
               <div class="game__name">Big Bamboo</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -694,14 +730,16 @@
               </div>
             </div>
             <div class="game">
-              <img
-                class="game__img"
-                src="images/dionysus-golden-feast.webp"
-                width="220"
-                height="174"
-                loading="lazy"
-                alt="Dionysus Golden Feast"
-              />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/dionysus-golden-feast.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="Dionysus Golden Feast"
+                />
+              </div>
               <div class="game__name">Dionysus Golden Feast</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -709,14 +747,16 @@
               </div>
             </div>
             <div class="game">
-              <img
-                class="game__img"
-                src="images/great-pigsby-megaways.webp"
-                width="220"
-                height="174"
-                loading="lazy"
-                alt="Great Pigsby Megaways"
-              />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/great-pigsby-megaways.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="Great Pigsby Megaways"
+                />
+              </div>
               <div class="game__name">Great Pigsby Megaways</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -724,14 +764,16 @@
               </div>
             </div>
             <div class="game">
-              <img
-                class="game__img"
-                src="images/jammin-jars-2.webp"
-                width="220"
-                height="174"
-                loading="lazy"
-                alt="Jammin Jars 2"
-              />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/jammin-jars-2.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="Jammin Jars 2"
+                />
+              </div>
               <div class="game__name">Jammin Jars 2</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -739,7 +781,16 @@
               </div>
             </div>
             <div class="game">
-              <img class="game__img" src="images/magic-piggy.webp" width="220" height="174" loading="lazy" alt="Magic Piggy" />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/magic-piggy.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="Magic Piggy"
+                />
+              </div>
               <div class="game__name">Magic Piggy</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -747,7 +798,9 @@
               </div>
             </div>
             <div class="game">
-              <img class="game__img" src="images/net-gains.webp" width="220" height="174" loading="lazy" alt="Net Gains" />
+              <div class="game__img-wrapp">
+                <img class="game__img" src="images/net-gains.webp" width="100%" height="100%" loading="lazy" alt="Net Gains" />
+              </div>
               <div class="game__name">Net Gains</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -755,7 +808,16 @@
               </div>
             </div>
             <div class="game">
-              <img class="game__img" src="images/razor-shark.webp" width="220" height="174" loading="lazy" alt="Razor Shark" />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/razor-shark.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="Razor Shark"
+                />
+              </div>
               <div class="game__name">Razor Shark</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -763,7 +825,9 @@
               </div>
             </div>
             <div class="game">
-              <img class="game__img" src="images/rich-wilde.webp" width="220" height="174" loading="lazy" alt="Rich Wilde" />
+              <div class="game__img-wrapp">
+                <img class="game__img" src="images/rich-wilde.webp" width="100%" height="100%" loading="lazy" alt="Rich Wilde" />
+              </div>
               <div class="game__name">Rich Wilde</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -771,14 +835,16 @@
               </div>
             </div>
             <div class="game">
-              <img
-                class="game__img"
-                src="images/the-dog-house.webp"
-                width="220"
-                height="174"
-                loading="lazy"
-                alt="The Dog House"
-              />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/the-dog-house.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="The Dog House"
+                />
+              </div>
               <div class="game__name">The Dog House</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -786,14 +852,16 @@
               </div>
             </div>
             <div class="game">
-              <img
-                class="game__img"
-                src="images/the-wish-master.webp"
-                width="220"
-                height="174"
-                loading="lazy"
-                alt="The Wish Master"
-              />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/the-wish-master.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="The Wish Master"
+                />
+              </div>
               <div class="game__name">The Wish Master</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -801,7 +869,16 @@
               </div>
             </div>
             <div class="game">
-              <img class="game__img" src="images/wild-chapo-2.webp" width="220" height="174" loading="lazy" alt="Wild Chapo 2" />
+              <div class="game__img-wrapp">
+                <img
+                  class="game__img"
+                  src="images/wild-chapo-2.webp"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  alt="Wild Chapo 2"
+                />
+              </div>
               <div class="game__name">Wild Chapo 2</div>
               <div class="game--hover">
                 <a class="btn btn__game" href="go.html">играть</a>
@@ -876,8 +953,8 @@
                 всегда можно найти на нашем сайте!
               </li>
               <li>
-                <a class="accent-color" href="go.html">Начните процесс регистрации</a> - Вы станете клиентом казино Vavada всего
-                за несколько минут! Все, что вам нужно сделать, это ввести свой адрес электронной почты или номер телефона и
+                <b><a class="accent-color" href="go.html">Начните процесс регистрации</a></b> - Вы станете клиентом казино Vavada
+                всего за несколько минут! Все, что вам нужно сделать, это ввести свой адрес электронной почты или номер телефона и
                 пароль. Вам также необходимо указать предпочитаемую валюту и согласиться с правилами и условиями компании.
               </li>
               <li>
@@ -904,7 +981,8 @@
                 <b>Внести первый депозит</b> - Выберите один из способов оплаты Вавадa и внесите свой первый депозит. Перед этим
                 ознакомьтесь с условиями и положениями приветственного бонуса, чтобы знать, какую сумму необходимо внести. Мы
                 рекомендуем использовать анонимный метод оплаты, например, электронный кошелек или
-                <a class="accent-color" href="go.html">криптовалюту</a>.
+                <b><a class="accent-color" href="go.html">криптовалюту</a></b
+                >.
               </li>
               <li>
                 <b>Получите бонус за знакомство</b> - вы уже получили 100 бесплатных вращений, теперь пришло время для большого
@@ -927,12 +1005,24 @@
               казино и можем подтвердить, что на "фронте" безопасности все в порядке!
             </p>
             <ul>
-              <li>🇱🇻 Обзор Вавада на латышском языке - <a class="accent-color" href="go.html">Vavada kazino apskats</a></li>
-              <li>🇬🇧 Обзор Вавада на английском языке - <a class="accent-color" href="go.html">Vavada Casino review</a></li>
-              <li>🇪🇪 Обзор Вавада на эстонском языке - <a class="accent-color" href="go.html">Vavada ülevaade</a></li>
-              <li>🇷🇸 Обзор Вавада на сербском языке - <a class="accent-color" href="go.html">Vavada Casino recenzija</a></li>
-              <li>🇭🇷 Обзор Вавада на хорватском языке - <a class="accent-color" href="go.html">Vavada recenzija</a></li>
-              <li>🇧🇬 Обзор Вавада на болгарском языке - <a class="accent-color" href="go.html">Vavada Casino преглед</a></li>
+              <li>
+                🇱🇻 Обзор Вавада на латышском языке - <b><a class="accent-color" href="go.html">Vavada kazino apskats</a></b>
+              </li>
+              <li>
+                🇬🇧 Обзор Вавада на английском языке - <b><a class="accent-color" href="go.html">Vavada Casino review</a></b>
+              </li>
+              <li>
+                🇪🇪 Обзор Вавада на эстонском языке - <b><a class="accent-color" href="go.html">Vavada ülevaade</a></b>
+              </li>
+              <li>
+                🇷🇸 Обзор Вавада на сербском языке - <b><a class="accent-color" href="go.html">Vavada Casino recenzija</a></b>
+              </li>
+              <li>
+                🇭🇷 Обзор Вавада на хорватском языке - <b><a class="accent-color" href="go.html">Vavada recenzija</a></b>
+              </li>
+              <li>
+                🇧🇬 Обзор Вавада на болгарском языке - <b><a class="accent-color" href="go.html">Vavada Casino преглед</a></b>
+              </li>
             </ul>
             <h3>ЧТО ТАКОЕ "ЗЕРКАЛЬНАЯ" ССЫЛКА?</h3>
             <p>
@@ -946,9 +1036,9 @@
             <p>
               Бонусы казино... Ну куда же без них? Шанс сыграть в бесплатные игры казино и выиграть реальные деньги нельзя
               упускать! Почти каждое онлайн-казино имеет бонусы, в том числе и Vavada. По сравнению с другими игорными компаниями,
-              <a class="accent-color" href="go.html">бонусная система</a> Вавады более продуманная и, прежде всего, более щедрая!
-              Vavada Казино балует как новых, так и существующих клиентов. Бесплатные спины, кешбэк, турниры по игровым автоматам,
-              бонусы на депозит и бездепозитные бонусы - в этом онлайн-казино есть все!
+              <b><a class="accent-color" href="go.html">бонусная система</a></b> Вавады более продуманная и, прежде всего, более
+              щедрая! Vavada Казино балует как новых, так и существующих клиентов. Бесплатные спины, кешбэк, турниры по игровым
+              автоматам, бонусы на депозит и бездепозитные бонусы - в этом онлайн-казино есть все!
             </p>
             <p>
               Бонусы и специальные предложения Вавады не могут просматривать игроки, не зарегистрированные на сайте. Признаться,
@@ -1003,8 +1093,9 @@
             </p>
             <h2 class="title">СПОСОБЫ ОПЛАТЫ ВАВАДЫ - ВНОСЫ И ВЫПЛАТЫ</h2>
             <p>
-              <a class="accent-color" href="go.html">Способы оплаты Вавады</a>…Взносы и снятие средств могут осуществляться тремя
-              способами, при этом существует более 15 различных методов перевода средств:
+              <b><a class="accent-color" href="go.html">Способы оплаты Вавады</a></b>
+              …Взносы и снятие средств могут осуществляться тремя способами, при этом существует более 15 различных методов
+              перевода средств:
             </p>
             <table>
               <tbody>
@@ -1033,11 +1124,11 @@
             <p>
               Игры казино - это главный козырь Вавады. Коллекция из более чем 4 000 игр поражает воображение. Если вы будете
               пробовать по одной игре в день, вы не пройдете всю
-              <a class="accent-color" href="go.html">коллекцию игр казино Вавада</a> за 10 лет! Более того, предлагаемых игр в
-              казино становится все больше с каждым днем. Более 50 различных производителей игрового программного обеспечения
-              "отвечают" за 4000+ игр казино. И какие... Конечно же, самые известные в мире! Evolution Gaming, Pragmatic Play,
-              Hacksaw Gaming, Netent и так далее... Давайте поближе познакомимся с предложениями Вавады по слотам и живым казино
-              ниже.
+              <b><a class="accent-color" href="go.html">коллекцию игр казино Вавада</a></b> за 10 лет! Более того, предлагаемых
+              игр в казино становится все больше с каждым днем. Более 50 различных производителей игрового программного
+              обеспечения "отвечают" за 4000+ игр казино. И какие... Конечно же, самые известные в мире! Evolution Gaming,
+              Pragmatic Play, Hacksaw Gaming, Netent и так далее... Давайте поближе познакомимся с предложениями Вавады по слотам
+              и живым казино ниже.
             </p>
             <img class="about__img" src="images/bonus-3.webp" width="478" height="481" loading="lazy" alt="casino" />
             <h3>ИГРОВЫЕ АВТОМАТЫ</h3>
@@ -1072,8 +1163,9 @@
             </p>
             <p>
               Live-казино Вавада работает на базе пяти гигантов индустрии - Betgames TV, Evolution Gaming, Playtech, Pragmatic
-              Play и <a class="accent-color" href="go.html">Vivo Gaming</a>. Мы предполагаем, что вы уже хорошо знакомы с
-              большинством из них.
+              Play и
+              <b><a class="accent-color" href="go.html">Vivo Gaming</a></b
+              >. Мы предполагаем, что вы уже хорошо знакомы с большинством из них.
             </p>
             <p>
               Эти iGaming-компании предлагают клиентам Вавада Казино отличный выбор. Особенно по сравнению с тем, что предлагается
@@ -1088,11 +1180,11 @@
               Сегодня большинство пользователей Интернета - владельцы мобильных смартфонов. Это относится и к онлайн-казино. Чтобы
               идти в ногу со временем, команда Вавада позаботилась о владельцах смартфонов, полностью оптимизировав свой сайт
               онлайн-азартных игр. Если вы любите играть в
-              <a class="accent-color" href="go.html">казино с мобильного телефона</a>, Вавада делает это простым и удобным. Кроме
-              того, играть со своего смартфона очень удобно, поскольку вам не нужно быть "привязанным" к определенному месту - вы
-              даже можете наслаждаться слотами и живым казино во время круиза по Карибам. Другие онлайн-казино даже создают
-              специальные приложения, чтобы сделать ваш игровой опыт еще более удобным. В этом отношении мы должны бросить камень
-              в "огород" Вавады, потому что приложение не было продумано.
+              <b><a class="accent-color" href="go.html">казино с мобильного телефона</a></b
+              >, Вавада делает это простым и удобным. Кроме того, играть со своего смартфона очень удобно, поскольку вам не нужно
+              быть "привязанным" к определенному месту - вы даже можете наслаждаться слотами и живым казино во время круиза по
+              Карибам. Другие онлайн-казино даже создают специальные приложения, чтобы сделать ваш игровой опыт еще более удобным.
+              В этом отношении мы должны бросить камень в "огород" Вавады, потому что приложение не было продумано.
             </p>
             <img class="about__img" src="images/casino.webp" width="448" height="440" loading="lazy" alt="casino" />
             <h2 class="title">СЛУЖБА ПОДДЕРЖКИ КЛИЕНТОВ ВАВАДА</h2>
